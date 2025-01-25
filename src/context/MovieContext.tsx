@@ -19,7 +19,7 @@ export const MovieProvider = ({ children }: { children: React.ReactNode }) => {
   const getMovies = async () => {
     try {
       const res = await fetch(
-        "https://api.themoviedb.org/3/movie/now_playing?api_key=f5112fbecc0740d80741559af494118d"
+        `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.TMDB_API_KEY}`
       );
       const data = await res.json();
       setMovies(data.results);
