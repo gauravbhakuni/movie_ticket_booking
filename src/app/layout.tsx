@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { MovieProvider } from '@/context/MovieContext';
+import AuthProvider from "@/context/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +19,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="dark">
+      <AuthProvider>
+        <body className={inter.className}>
+          <MovieProvider>
+            <div className="relative w-full flex items-center">
+              <Navbar />
+            </div>
+            {children}
+            <Footer />
+          </MovieProvider>
+        </body>
+      </AuthProvider>
     </html>
   );
 }
