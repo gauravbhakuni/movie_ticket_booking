@@ -1,10 +1,12 @@
 import fetch from 'node-fetch';
 
+const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY;
+
 const url = 'https://imdb8.p.rapidapi.com/auto-complete?q=Phir%20Hera';
 const options = {
   method: 'GET',
   headers: {
-    'X-RapidAPI-Key': 'dfa1df0f19msh8759aba06597a7cp1c0ca3jsnfdf429f6921b',
+    'X-RapidAPI-Key': RAPIDAPI_KEY!,
     'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'
   }
 };

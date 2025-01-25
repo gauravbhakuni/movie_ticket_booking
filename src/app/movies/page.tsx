@@ -7,7 +7,7 @@ const MoviePage = ({ className }: { className?: string }) => {
 
   const getMovies = async () => {
     try {
-      const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.TMDB_API_KEY}`);
+      const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`);
       if (!response.ok) {
         throw new Error("Failed to fetch movies");
       }
